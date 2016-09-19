@@ -17,17 +17,17 @@ public class model implements Token {
 
     private Stack<Token> st;
 
-    public model(String StrToToken) {
-        this.InputStackTokens(StrToToken);
-    }
+//    public model(String stringExpression) {
+//        this.InputStackTokens(stringExpression);
+//    }
 
     public model() {
     }
 
     // Skapa och lägga om tokens i stacken operator och operander
-    private void InputStackTokens(String StrToToken) {
+    public void InputStackTokens(String stringExpression) {
         try {
-            for (String token : StrToToken.split(" ")) {
+            for (String token : stringExpression.split(" ")) {
 
                 switch (token) {
                     case "+":
@@ -46,7 +46,18 @@ public class model implements Token {
         }
     }
 
+    @Override
     public double EvaluateToken() {
-        return st.pop().EvaluateToken();
+
+        double result = 0;
+
+        while (!st.empty()) {
+            result = st.pop().EvaluateToken();
+        }
+
+        return result;
     }
 }
+
+
+// getexpression setexpression?
