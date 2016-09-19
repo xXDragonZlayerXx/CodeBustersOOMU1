@@ -6,45 +6,47 @@
 package grupp01.calculator.model;
 
 import java.util.Stack;
-import java.util.StringTokenizer;
 import grupp01.calculator.model.token.*;
-import java.util.Scanner;
 import grupp01.calculator.model.token.Operand;
+
 /**
  *
  * @author optimusprime94
  */
-public class model extends TokenStack {
+public class model implements Token {
 
-        TokenStack tok = new TokenStack();
+    private Stack<Token> st;
 
-    public model(String userinput) {
-        this.InputStackTokens(userinput);
-    }
-    
-       public model() {
+    public model(String StrToToken) {
+        this.InputStackTokens(StrToToken);
     }
 
-    private void InputStackTokens(String userinput) {
-        try{
-        for (String t : userinput.split(" ")) {
-            tok.SetToken(tok.StringToToken(t));
-        }
-        } catch (Exception e){
+    public model() {
+    }
+
+    // Skapa och lägga om tokens i stacken operator och operander
+    private void InputStackTokens(String StrToToken) {
+        try {
+            for (String token : StrToToken.split(" ")) {
+
+                switch (token) {
+                    case "+":
+                        st.push(new PlusOperator());
+                    case "-":
+                        st.push(new MinusOperator());
+                    case "*":
+                        st.push(new MultipOperator());
+                    default: // kanske kolla om det är numeric sen pusha annars exception
+                        st.push(new Operand(token));
+
+                }
+            }
+        } catch (Exception e) {
             System.exit(0);
         }
     }
 
-    void SetStackValues(String userinput) {
-        this.InputStackTokens(userinput);
-    }
-    
-    
-    public void EvaluateTokens() {
-        TokenStack t = new TokenStack();
-        InputStackTokens("1 2 3");
-        tok.DisplayTopToken();
-             
-        
+    public double EvaluateToken() {
+        return st.pop().EvaluateToken();
     }
 }

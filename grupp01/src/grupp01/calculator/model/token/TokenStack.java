@@ -11,24 +11,25 @@ import java.util.Stack;
  *
  * @author S143522
  */
-public class TokenStack implements Token {
+public class TokenStack implements TokenType {
 
-    private Stack<Token> st;
-
-    // Instansierar stacken av Token typ.
-    public TokenStack() {
+    private Stack<TokenType> st;
+    private String tokenString;
+    // Instansierar stacken av TokenType typ.
+    public TokenStack(String expression) {
+        tokenString = expression;
         st = new Stack<>();
     }
     // visar det som är det sista elementet i stacken.
-    public Token ShowToken() {
+    public TokenType ShowToken() {
         return st.peek();
     }
     // retunerar det som är det sista elementet i stacken.
-    public Token GetToken() {
-        return st.peek();
+    public TokenType GetToken() {
+        return st.pop();
     }
     // sätter in ett element i staken
-    public void SetToken(Token to) {
+    public void SetToken(TokenType to) {
         st.push(to);
     }
 
@@ -36,14 +37,14 @@ public class TokenStack implements Token {
         return(st.isEmpty());
     }
     
-    public Token StringToToken(String st) throws Exception {
+    public TokenType StringToToken(String st) throws Exception {
         Class cl = Class.forName(st);
-        Token tok = (Token) cl.newInstance();
+        TokenType tok = (TokenType) cl.newInstance();
         return tok;
     }
     
-       public void DisplayTopToken(){
-           System.out.println(st.peek());
+       public void DisplayTopToken(){         
+           System.out.println(String.valueOf((Object)st.peek()));
        }
 
     // public abstract double ShowResult(Stack expression) throws Exception;

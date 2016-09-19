@@ -17,10 +17,10 @@ import java.util.Stack;
 public class Calculator {
     
     public static void main(String[] args) {
-        model cal = new model();
+        model cal = new model("3 2 +");
         
-        cal.EvaluateTokens();
-        System.out.print("dfdgfgfgg");
+       System.out.println(cal.EvaluateToken());
+
     }
     
 }

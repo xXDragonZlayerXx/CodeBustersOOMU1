@@ -14,14 +14,15 @@ import grupp01.calculator.model.token.OperatorInfo;
 
 @OperatorInfo(op = "+")
 
-public class OperatorPlus extends TokenStack {
+public class PlusOperator extends model {
 
-public OperatorPlus() {
+public PlusOperator() {
    
 }
 
-public double Operation(Stack e) throws Exception {
+public double EvaluateToken(Stack<Token> st) 
+        throws Exception {
     
-    return Operand.toDouble(e.pop()) + Operand.toDouble(e.pop());
+    return st.pop().EvaluateToken() + st.pop().EvaluateToken();
     }
 }

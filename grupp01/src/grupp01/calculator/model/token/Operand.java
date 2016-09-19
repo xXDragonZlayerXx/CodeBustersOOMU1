@@ -5,20 +5,28 @@
  */
 package grupp01.calculator.model.token;
 import grupp01.calculator.model.token.*;
+import grupp01.calculator.model.model;
 
 /**
  *
  * @author optimusprime
  */
-public class Operand extends TokenStack{
+public class Operand extends model{
     
     private static double value;
     
+    public Operand(String token){
+        toDouble(token);
+    }
     
-    public static double toDouble(Object input) {
-        
-        value = Double.parseDouble(String.valueOf(input));
+    private double toDouble(String token) {
+        //exception om det inte är en operand
+        value = Double.parseDouble(token);
         return value;
     }   
+    
+    public double EvaluateToken(){
+        return value;
+    }
 }
 

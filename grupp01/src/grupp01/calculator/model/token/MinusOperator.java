@@ -14,19 +14,13 @@ import grupp01.calculator.model.token.OperatorInfo;
 
 @OperatorInfo(op = "-")
 
-public class OperatorMinus extends TokenStack {
+public class MinusOperator extends model {
 
-public OperatorMinus(String op) {
-    
-}
+    public MinusOperator() {}
 
-public double Operation(Stack e) throws Exception {
+public double EvaluateToken(Stack<Token> st) 
+        throws Exception {
     
-    double rightOperand = Operand.toDouble(e.pop());
-    double leftOperand = Operand.toDouble(e.pop());
-
-    
-    return rightOperand - leftOperand;
-    
+    return st.pop().EvaluateToken() - st.pop().EvaluateToken();
     }
 }
