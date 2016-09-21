@@ -5,7 +5,7 @@
  */
 package grupp01.calculator.controller;
 
-import grupp01.calculator.model.model;
+import grupp01.calculator.model.*;
 import grupp01.calculator.view.*;
 import java.util.Scanner;
 /**
@@ -14,46 +14,22 @@ import java.util.Scanner;
  */
 public class Controller {
     
-    public Controller(){}
+    public Controller(){
+    }
     
-    public void Run(String arg[]) {
+    public void Run(String args[]) {
         View view;
+        model calculator = new model();
 
-        while (arg.length != 0) {
-            try {
-                if (arg.length == 0) {
+        //while (arg.length != null) {
+          //  try {
+                if (args.length == 0) {
                     view = new CommandView();
-                    //expression evaluation(arg)
+                    calculator.InputStackTokens(view.GetInput());
+                    view.DisplayResult(calculator.EvaluateToken());
                 } else {
                     view = new FileView();
-                    //file expression evalation(arg)
                 }
-            } catch (Exception e) {
-                System.out.println("Illegal expression type!");
-                
             }
         }
-    }
-
-    public void CommandOption() {
-//        CommandView v = new CommandView();
-//        
-//    
-//        model calc = new model();
-//        calc.StackTokens(exp.next());
-//
-//        v.DisplayView();
-//        // input, evaluation från mode, output 
-    }
-
-    public void FileOption() {
-//        FileView v = new FileView();
-//        
-//        v.DisplayView();
-//        //read from file, display and output + felkontroll?
-//        //file input/output from model
-//        //view display
-
-    }
-
-}
+    
