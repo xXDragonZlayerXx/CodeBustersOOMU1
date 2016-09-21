@@ -15,48 +15,69 @@ import grupp01.calculator.model.token.Operand;
  */
 public class model implements Token {
 
-    private Stack<Token> st;
+    protected static Stack<Token> st = new Stack<>();
 
 //    public model(String stringExpression) {
 //        this.InputStackTokens(stringExpression);
 //    }
 
-    public model() {
+    public model(){
+            
     }
 
     // Skapa och lägga om tokens i stacken operator och operander
     public void InputStackTokens(String stringExpression) {
+       
+           String str = new String(stringExpression);
         try {
-            for (String token : stringExpression.split(" ")) {
-
+            for (String token : str.split(" ")) {
+                System.out.println("" + token);
                 switch (token) {
                     case "+":
                         st.push(new PlusOperator());
+                        break;
                     case "-":
                         st.push(new MinusOperator());
+                        break;
                     case "*":
                         st.push(new MultipOperator());
+                        break;
+                    case "/":
+                        st.push(new DivisionOperator());
+                        break;
                     default: // kanske kolla om det är numeric sen pusha annars exception
                         st.push(new Operand(token));
+                        break;
 
                 }
             }
         } catch (Exception e) {
-            System.exit(0);
+            System.out.println("lel feeeel! " + e);
+            System.exit(1);
         }
     }
 
-    @Override
-    public double EvaluateToken() {
 
-        double result = 0;
+    public double EvaluateExpression() {
 
-        while (!st.empty()) {
+        double result = 0.0;
+       //   System.out.println(st);
+            if (!st.empty()) 
             result = st.pop().EvaluateToken();
-        }
+        
 
         return result;
     }
+  
+        public double EvaluateToken() {
+            return EvaluateExpression();
+        }
+        
+        public void test(){
+            st.push(new Operand("3"));
+            st.push(new Operand("2"));
+            st.push(new MultipOperator());
+        }
 }
 
 

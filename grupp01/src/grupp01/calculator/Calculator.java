@@ -17,9 +17,12 @@ import java.util.Stack;
 public class Calculator {
     
     public static void main(String[] args) {
-        model cal = new model("3 2 +");
+        model cal = new model();
+         
         
-       System.out.println(cal.EvaluateToken());
+        cal.InputStackTokens("9 4 /");
+        //cal.test();
+       System.out.println(cal.EvaluateExpression());
 
     }
     

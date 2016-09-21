@@ -5,26 +5,21 @@
  */
 package grupp01.calculator.model.token;
 
-import grupp01.calculator.model.token.Operand;
-import grupp01.calculator.model.*;
-import java.util.Stack;
-import grupp01.calculator.model.token.OperatorInfo;
-import java.io.*;
+import grupp01.calculator.model.model;
 
-
-
-@OperatorInfo(op = "+")
-
-public class PlusOperator extends model {
-
-
-@Override
-public double EvaluateToken() {
+/**
+ *
+ * @author optimusprime
+ */
+public class DivisionOperator extends model {
+    
+        @Override 
+    public double EvaluateToken() {
     double operand1, operand2,result;
     
     operand1 = st.pop().EvaluateToken();
     operand2 = st.pop().EvaluateToken();
-    result = operand2 + operand1;
+    result = operand2 / operand1;
     
     return result;
     }

@@ -6,6 +6,7 @@
 package grupp01.calculator.model.token;
 import grupp01.calculator.model.token.*;
 import grupp01.calculator.model.model;
+import java.util.Stack;
 
 /**
  *
@@ -13,7 +14,7 @@ import grupp01.calculator.model.model;
  */
 public class Operand extends model{
     
-    private static double value;
+    private double value;
     
     public Operand(String token){
         toDouble(token);
@@ -25,6 +26,7 @@ public class Operand extends model{
         return value;
     }   
     
+  
     public double EvaluateToken(){
         return value;
     }

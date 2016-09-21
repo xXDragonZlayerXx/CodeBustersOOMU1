@@ -17,8 +17,8 @@ public class MultipOperator extends model {
         // Constructor
     }
     
-    public double EvaluateToken(Stack<Token> st) 
-        throws Exception {
+    @Override
+    public double EvaluateToken(){
     
     return st.pop().EvaluateToken() * st.pop().EvaluateToken();
     }

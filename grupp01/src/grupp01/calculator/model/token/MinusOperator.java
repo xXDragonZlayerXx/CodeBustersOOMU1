@@ -16,11 +16,14 @@ import grupp01.calculator.model.token.OperatorInfo;
 
 public class MinusOperator extends model {
 
-    public MinusOperator() {}
-
-public double EvaluateToken(Stack<Token> st) 
-        throws Exception {
+    @Override 
+    public double EvaluateToken() {
+    double operand1, operand2,result;
     
-    return st.pop().EvaluateToken() - st.pop().EvaluateToken();
+    operand1 = st.pop().EvaluateToken();
+    operand2 = st.pop().EvaluateToken();
+    result = operand2 - operand1;
+    
+    return result;
     }
 }
