@@ -13,5 +13,5 @@ import java.util.Stack;
  */
 public interface Token{
     
-    public abstract double EvaluateToken();
+    public abstract double EvaluateToken()throws Exception;
 }

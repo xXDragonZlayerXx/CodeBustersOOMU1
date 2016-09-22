@@ -7,6 +7,7 @@ package grupp01.calculator.controller;
 
 import grupp01.calculator.model.*;
 import grupp01.calculator.view.*;
+import java.io.IOException;
 import java.util.Scanner;
 /**
  *
@@ -19,17 +20,24 @@ public class Controller {
     
     public void Run(String args[]) {
         View view;
-        model calculator = new model();
+        boolean quit = false;
 
-        //while (arg.length != null) {
-          //  try {
-                if (args.length == 0) {
-                    view = new CommandView();
-                    calculator.InputStackTokens(view.GetInput());
-                    view.DisplayResult(calculator.EvaluateToken());
-                } else {
-                    view = new FileView();
-                }
+            if (args.length == 0) {
+                view = new CommandView();
+
+            } else {
+                view = new FileView();
             }
+            do{
+                    try {
+            view.Uview(args);
+            quit = true;
+        } catch (IllegalArgumentException | ArithmeticException | IOException e) {
+            System.out.println("Type Of Error: " + e);
+        } catch (Exception e) {
+            System.out.println("Error" + e);
         }
+            } while(quit == false);
+    }
+}
     

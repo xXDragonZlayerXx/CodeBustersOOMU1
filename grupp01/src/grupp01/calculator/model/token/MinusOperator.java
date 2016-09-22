@@ -17,7 +17,7 @@ import grupp01.calculator.model.token.OperatorInfo;
 public class MinusOperator extends model {
 
     @Override 
-    public double EvaluateToken() {
+    public double EvaluateToken()throws Exception {
     double operand1, operand2,result;
     
     operand1 = st.pop().EvaluateToken();

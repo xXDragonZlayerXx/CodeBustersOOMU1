@@ -8,12 +8,13 @@ package grupp01.calculator.model;
 import java.util.Stack;
 import grupp01.calculator.model.token.*;
 import grupp01.calculator.model.token.Operand;
+import java.lang.IllegalArgumentException;
 
 /**
  *
  * @author optimusprime94
  */
-public class model implements Token {
+public class model implements Token  {
 
     protected static Stack<Token> st = new Stack<>();
 
@@ -26,12 +27,14 @@ public class model implements Token {
     }
 
     // Skapa och lägga om tokens i stacken operator och operander
-    public void InputStackTokens(String stringExpression) {
+    public void InputStackTokens(String stringExpression) throws IllegalArgumentException {
        
            String str = new String(stringExpression);
-        try {
+           
             for (String token : str.split(" ")) {
-                System.out.println("" + token);
+                if(token.matches("[-+]?\\d*\\.?\\d+"))
+                 st.push(new Operand(token));
+                else{
                 switch (token) {
                     case "+":
                         st.push(new PlusOperator());
@@ -45,39 +48,40 @@ public class model implements Token {
                     case "/":
                         st.push(new DivisionOperator());
                         break;
-                    default: // kanske kolla om det är numeric sen pusha annars exception
-                        st.push(new Operand(token));
+                    case "%":
+                       st.push(new OperatorModulus());
                         break;
-
+                        
+                    default:
+                        throw new IllegalArgumentException();
                 }
             }
-        } catch (Exception e) {
-            System.out.println("lel feeeel! " + e);
-            System.exit(1);
         }
     }
 
 
-    public double EvaluateExpression() {
+
+    @Override
+    public double EvaluateToken() throws Exception {
 
         double result = 0.0;
        //   System.out.println(st);
-            if (!st.empty()) 
+        // try{
+        if (!st.empty()) {
             result = st.pop().EvaluateToken();
+        }
+        if (!st.empty()) {
+            throw new IllegalArgumentException();
+        }
         
-
         return result;
+//    } catch(IllegalArgumentException e ) {
+//     System.out.println(e.getMessage());
+//     
+//        }
+//       return result;
+//}
     }
-  
-        public double EvaluateToken() {
-            return EvaluateExpression();
-        }
-        
-        public void test(){
-            st.push(new Operand("3"));
-            st.push(new Operand("2"));
-            st.push(new MultipOperator());
-        }
 }
 
 

@@ -13,13 +13,20 @@ import java.util.Scanner;
  */
 public class FileCommands {
     
-        String FromInputFile(String inputFile) 
+            java.io.File ifile;
+            java.io.File ofile;
+   public FileCommands(String input, String output){
+
+        ifile = new java.io.File(input);
+          ofile = new java.io.File(output);
+    
+    }
+      public String ReadInputFile() 
             throws Exception {
         
-        java.io.File file = new java.io.File(inputFile);
         String line = "";
         
-        try (Scanner input = new Scanner(file)) {
+        try (Scanner input = new Scanner(ifile)) {
             if(input.hasNext()){
                 line = input.nextLine();
             }
@@ -27,16 +34,20 @@ public class FileCommands {
         }
     }
             
-    void ToOutputFile(String fileName, double result)
+    public void WriteOutputFile(double result)
             throws Exception {
 
-        java.io.File file = new java.io.File(fileName);
-        if (file.exists()) {
-            System.out.println("File already exists");
-            System.exit(0);
-        }
-        try (java.io.PrintWriter output = new java.io.PrintWriter(file)) {
+        java.io.PrintWriter output = new java.io.PrintWriter(ofile);
             output.println(result);
+        
+    }
+    
+    public void closeOutputFile() throws Exception{
+        try{
+        java.io.PrintWriter output = new java.io.PrintWriter(ofile);
+            output.println("slut på fil");
+        }catch(Exception e){
+        System.out.println(e.getMessage());
         }
     }
 }

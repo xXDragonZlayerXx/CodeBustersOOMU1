@@ -19,7 +19,7 @@ public class PlusOperator extends model {
 
 
 @Override
-public double EvaluateToken() {
+public double EvaluateToken() throws Exception {
     double operand1, operand2,result;
     
     operand1 = st.pop().EvaluateToken();

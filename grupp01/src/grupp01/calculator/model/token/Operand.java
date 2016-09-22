@@ -27,7 +27,8 @@ public class Operand extends model{
     }   
     
   
-    public double EvaluateToken(){
+    @Override
+    public double EvaluateToken()throws Exception{
         return value;
     }
 }

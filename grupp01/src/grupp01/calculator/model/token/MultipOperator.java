@@ -12,13 +12,9 @@ import grupp01.calculator.model.*;
  * @author optimusprime (elvir)
  */
 public class MultipOperator extends model {
-    
-    public MultipOperator(){
-        // Constructor
-    }
-    
+
     @Override
-    public double EvaluateToken(){
+    public double EvaluateToken() throws Exception {
     
     return st.pop().EvaluateToken() * st.pop().EvaluateToken();
     }

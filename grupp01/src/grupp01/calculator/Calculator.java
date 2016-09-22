@@ -17,12 +17,22 @@ import java.util.Stack;
 public class Calculator {
     
     public static void main(String[] args) {
-        model cal = new model();
-         
+        Controller controll = new Controller();
+        try{
+       if(args.length == 0 || args.length == 2 )
+           controll.Run(args);
+       
+        } catch(Exception e){
+         // syntaxError
         
-        cal.InputStackTokens("9 4 /");
-        //cal.test();
-       System.out.println(cal.EvaluateExpression());
+        }
+        
+       
+         
+//        
+//        cal.InputStackTokens("9 4 /");
+//        //cal.test();
+//       System.out.println(cal.EvaluateExpression());
 
     }
     
