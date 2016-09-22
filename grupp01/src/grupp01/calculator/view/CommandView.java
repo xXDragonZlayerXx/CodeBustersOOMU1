@@ -5,7 +5,7 @@
  */
 package grupp01.calculator.view;
 
-import grupp01.calculator.model.model;
+import grupp01.calculator.model.RPN;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -14,7 +14,7 @@ import java.util.Scanner;
  * @author optimusprime
  */
 public class CommandView extends View{
-    model calc = new model();
+    RPN calc = new RPN();
     
     @Override
         public void DisplayView(){
@@ -42,6 +42,7 @@ public class CommandView extends View{
             }
 
         }catch(Exception e){
+                calc.clearStack();
                 System.out.println(e.getMessage());
         
         }

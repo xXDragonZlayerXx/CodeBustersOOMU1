@@ -15,7 +15,7 @@ import java.util.Scanner;
  */
 public class FileView extends View {
     
-        model calc = new model();
+        RPN calc = new RPN();
         
     public FileView(){
     }
@@ -52,6 +52,7 @@ public class FileView extends View {
                 output.println(strOutput);
             }
             catch(Exception e){
+                calc.clearStack();
                 output.println(e.getMessage());
             }
             
