@@ -4,15 +4,13 @@
  * and open the template in the editor.
  */
 package grupp01.calculator.model.token;
-import grupp01.calculator.model.token.*;
-import grupp01.calculator.model.model;
-import java.util.Stack;
+import grupp01.calculator.model.RPN;
 
 /**
  *
  * @author optimusprime
  */
-public class Operand extends model{
+public class Operand extends RPN{
     
     private double value;
     

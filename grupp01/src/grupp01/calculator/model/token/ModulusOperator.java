@@ -4,12 +4,12 @@
  * and open the template in the editor.
  */
 package grupp01.calculator.model.token;
-import grupp01.calculator.model.model;
+import grupp01.calculator.model.RPN;
 /**
  *
  * @author optimusprime
  */
-public class OperatorModulus extends model {
+public class ModulusOperator extends RPN {
 
     @Override
     public double EvaluateToken() throws Exception {

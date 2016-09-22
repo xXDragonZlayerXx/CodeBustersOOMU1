@@ -5,13 +5,12 @@
  */
 package grupp01.calculator.model.token;
 
-import java.util.Stack;
 import grupp01.calculator.model.*;
 /**
  *
  * @author optimusprime (elvir)
  */
-public class MultipOperator extends model {
+public class MultipOperator extends RPN {
 
     @Override
     public double EvaluateToken() throws Exception {

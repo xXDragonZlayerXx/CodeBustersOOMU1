@@ -6,7 +6,6 @@
 package grupp01.calculator.view;
 
 import grupp01.calculator.model.RPN;
-import java.io.IOException;
 import java.util.Scanner;
 
 /**

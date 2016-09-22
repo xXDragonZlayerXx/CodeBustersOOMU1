@@ -45,7 +45,7 @@ public class RPN implements Token  {
                         st.push(new DivisionOperator());
                         break;
                     case "%":
-                       st.push(new OperatorModulus());
+                       st.push(new ModulusOperator());
                         break;
                         
                     default:

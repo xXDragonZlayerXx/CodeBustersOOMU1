@@ -5,16 +5,12 @@
  */
 package grupp01.calculator.model.token;
 
-import grupp01.calculator.model.token.Operand;
 import grupp01.calculator.model.*;
-import java.util.Stack;
-import grupp01.calculator.model.token.OperatorInfo;
 
 
 
-@OperatorInfo(op = "-")
 
-public class MinusOperator extends model {
+public class MinusOperator extends RPN {
 
     @Override 
     public double EvaluateToken()throws Exception {

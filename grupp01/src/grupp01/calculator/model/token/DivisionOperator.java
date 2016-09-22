@@ -5,13 +5,13 @@
  */
 package grupp01.calculator.model.token;
 
-import grupp01.calculator.model.model;
+import grupp01.calculator.model.RPN;
 
 /**
  *
  * @author optimusprime
  */
-public class DivisionOperator extends model{
+public class DivisionOperator extends RPN{
     
         @Override 
     public double EvaluateToken() throws Exception {

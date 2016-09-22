@@ -5,17 +5,9 @@
  */
 package grupp01.calculator.model.token;
 
-import grupp01.calculator.model.token.Operand;
 import grupp01.calculator.model.*;
-import java.util.Stack;
-import grupp01.calculator.model.token.OperatorInfo;
-import java.io.*;
 
-
-
-@OperatorInfo(op = "+")
-
-public class PlusOperator extends model {
+public class PlusOperator extends RPN {
 
 
 @Override
