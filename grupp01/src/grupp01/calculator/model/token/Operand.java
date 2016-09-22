@@ -13,13 +13,14 @@ import grupp01.calculator.model.RPN;
 public class Operand extends RPN{
     
     private double value;
-    
+    // konstruktor som skapar en operand
     public Operand(String token){
         toDouble(token);
     }
     
+    //Parsar en Token till double 
     private double toDouble(String token) {
-        //exception om det inte är en operand
+        
         value = Double.parseDouble(token);
         return value;
     }   

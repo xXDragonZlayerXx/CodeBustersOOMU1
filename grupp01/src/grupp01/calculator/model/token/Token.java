@@ -11,6 +11,6 @@ package grupp01.calculator.model.token;
  * @author optimusprime
  */
 public interface Token{
-    
+   
     public abstract double EvaluateToken()throws Exception;
 }

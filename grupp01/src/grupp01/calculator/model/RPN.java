@@ -58,6 +58,10 @@ public class RPN implements Token  {
  
 
     @Override
+    /* Rekursiv Metod som ränkar ut 
+    * Uttrycken i Stacken och returnerar det
+    *
+    */
     public double EvaluateToken() throws Exception {
 
         double result = 0.0;
@@ -71,7 +75,7 @@ public class RPN implements Token  {
         
         return result;
     }
-    
+    // Metod som "rensar" stacken efter användning
     public void clearStack(){
         RPN.st.clear();
     }
