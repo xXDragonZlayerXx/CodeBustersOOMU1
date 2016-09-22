@@ -12,7 +12,9 @@ import grupp01.calculator.controller.Controller;
  * @author Markus
  */
 public class Calculator {
-    
+    /* Main metod som startar controll metoden
+    * med antingen 0 eller 2 kommandoväxlar
+    */
     public static void main(String[] args) {
         Controller controll = new Controller();
        try {

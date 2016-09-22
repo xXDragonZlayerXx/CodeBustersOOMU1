@@ -26,6 +26,11 @@ public class FileView extends View {
     }
 
     @Override
+    /*
+    * Uview, abstrakt metod som läser från input fil och skriver
+    * till output fil i rätt format på strängarna
+    * kör sålänge vi har något o skriva från input filen
+    */
     public void Uview(String[] args){
         String strInput;
         String strOutput;

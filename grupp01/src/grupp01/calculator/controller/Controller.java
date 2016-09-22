@@ -17,7 +17,11 @@ public class Controller {
     
     public Controller(){
     }
-    
+    /*
+    * Startar applikationen genom att
+    * veta vilken vy som ska användas
+    *
+    */
     public void Run(String args[]) {
         View view;
         boolean quit = false;

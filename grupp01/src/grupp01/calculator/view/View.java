@@ -28,6 +28,7 @@ public abstract class View {
     }
     
     public abstract void DisplayView();
+    // Abstrakt klass som ärvs till båda vyerna och använder args för att starta applikationen
     public abstract void Uview(String[] args);
 
 }

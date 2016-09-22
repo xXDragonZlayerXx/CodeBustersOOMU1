@@ -22,6 +22,11 @@ public class CommandView extends View{
     }
 
     @Override
+     /*
+    * Uview, metod som väntar på 
+    * input från användare och körs
+    * tills användaren matar in en tom sträng
+    */
     public void Uview(String[] args){
         
         
