@@ -22,22 +22,16 @@ public class Controller {
         View view;
         boolean quit = false;
 
-            if (args.length == 0) {
-                view = new CommandView();
+        if (args.length == 0) {
+            view = new CommandView();
 
-            } else {
-                view = new FileView();
-            }
-            do{
-                    try {
+        } else {
+            view = new FileView();
+        }
+        do{
             view.Uview(args);
             quit = true;
-        } catch (IllegalArgumentException | ArithmeticException | IOException e) {
-            System.out.println("Type Of Error: " + e);
-        } catch (Exception e) {
-            System.out.println("Error" + e);
-        }
-            } while(quit == false);
+        } while(quit == false);
     }
 }
     

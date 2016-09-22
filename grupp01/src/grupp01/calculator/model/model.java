@@ -17,11 +17,6 @@ import java.lang.IllegalArgumentException;
 public class model implements Token  {
 
     protected static Stack<Token> st = new Stack<>();
-
-//    public model(String stringExpression) {
-//        this.InputStackTokens(stringExpression);
-//    }
-
     public model(){
             
     }
@@ -31,7 +26,7 @@ public class model implements Token  {
        
            String str = new String(stringExpression);
            
-            for (String token : str.split(" ")) {
+           for (String token : str.split(" ")) {
                 if(token.matches("[-+]?\\d*\\.?\\d+"))
                  st.push(new Operand(token));
                 else{
@@ -53,36 +48,28 @@ public class model implements Token  {
                         break;
                         
                     default:
-                        throw new IllegalArgumentException();
+                        throw new IllegalArgumentException("Error: InvalidTokenException");
                 }
             }
         }
     }
 
-
+ 
 
     @Override
     public double EvaluateToken() throws Exception {
 
         double result = 0.0;
-       //   System.out.println(st);
-        // try{
+        
         if (!st.empty()) {
             result = st.pop().EvaluateToken();
         }
-        if (!st.empty()) {
-            throw new IllegalArgumentException();
+        if(!st.empty()){
+            throw new IllegalArgumentException("Error: InvalidOperationException");
         }
         
         return result;
-//    } catch(IllegalArgumentException e ) {
-//     System.out.println(e.getMessage());
-//     
-//        }
-//       return result;
-//}
     }
 }
 
 
-// getexpression setexpression?

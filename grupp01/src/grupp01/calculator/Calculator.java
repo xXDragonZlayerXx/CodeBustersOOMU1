@@ -18,22 +18,13 @@ public class Calculator {
     
     public static void main(String[] args) {
         Controller controll = new Controller();
-        try{
+       try {
        if(args.length == 0 || args.length == 2 )
            controll.Run(args);
-       
-        } catch(Exception e){
-         // syntaxError
-        
-        }
-        
-       
-         
-//        
-//        cal.InputStackTokens("9 4 /");
-//        //cal.test();
-//       System.out.println(cal.EvaluateExpression());
-
-    }
+       }catch(Exception e ){
+           
+    System.out.println("Syntax error:"+e);
+}
     
+}
 }

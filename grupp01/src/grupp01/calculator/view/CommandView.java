@@ -23,13 +23,14 @@ public class CommandView extends View{
     }
 
     @Override
-    public void Uview(String[] args) throws Exception {
+    public void Uview(String[] args){
         
         
         Scanner input = new Scanner(System.in);
         String str;
-     
+        
         while (true) {
+            try{
             System.out.println("Ange RPN uttryck <retur> (tom sträng = avsluta): ");
             str = input.nextLine();
             if (str.isEmpty()) {
@@ -40,7 +41,12 @@ public class CommandView extends View{
                 System.out.println("Svar: " + calc.EvaluateToken());
             }
 
+        }catch(Exception e){
+                System.out.println(e.getMessage());
+        
         }
-
+           
+     
+            }
     }
 }

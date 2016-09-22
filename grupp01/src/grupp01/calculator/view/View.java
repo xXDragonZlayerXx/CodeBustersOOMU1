@@ -28,6 +28,6 @@ public abstract class View {
     }
     
     public abstract void DisplayView();
-    public abstract void Uview(String[] args) throws Exception;
+    public abstract void Uview(String[] args);
 
 }

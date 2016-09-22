@@ -24,49 +24,40 @@ public class FileView extends View {
     public void DisplayView(){
         System.out.println("< Read from text-file >");
     }
-    
-        @Override
-//        public void Uview(String[] args) {
-//        //lel
-//        System.out.println("Resultat från fil: ");
-//        FileCommands f = new FileCommands(args[0], args[1]);
-//        String str;
-//        int i = 0;
-//        try{
-//        //oändligloop
-//        while (i < 10) {
-//            str = f.ReadInputFile();
-//                            i++;
-//            if (i == 10) {
-//                System.out.println("Inga fler uttryck");
-//                f.closeOutputFile();
-//                System.exit(0);
-//            } else {
-//                calc.InputStackTokens(str);
-//                f.WriteOutputFile(calc.EvaluateToken());
-//
-//            }
-//
-//        }
-//        } catch(Exception e){
-//            System.exit(1);
-//        }
-//    }
-    public void Uview(String[] args)throws Exception{
-        BufferedReader input;
-        BufferedWriter output;
-        String StrInput;
-        String StrOutput;
 
-            input = new BufferedReader(new FileReader(args[0]));
-            output = new BufferedWriter(new FileWriter(args[1]));
-            while ((StrInput = input.readLine()) != null) {
-                calc.InputStackTokens(StrInput);
+    @Override
+    public void Uview(String[] args){
+        String strInput;
+        String strOutput;
 
-                StrOutput = String.valueOf(calc.EvaluateToken());
-                output.write(StrOutput);
+        PrintStream output = null;
+        Scanner scanner = null;
+        
+        try{
+            output = new PrintStream(args[1]);
+            scanner = new Scanner(new FileReader(args[0]));
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        
+        do{
+            try{
+                strInput = scanner.nextLine();
+
+                calc.InputStackTokens(strInput);
+
+                strOutput = String.valueOf(String.format("%.2f",calc.EvaluateToken()));
+                
+                output.println(strOutput);
             }
-            input.close();
-            output.close();
+            catch(Exception e){
+                output.println(e.getMessage());
+            }
+            
+        }while(scanner.hasNextLine());
+
+        scanner.close();
+        output.close();
     }
 }
